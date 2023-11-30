@@ -1,6 +1,6 @@
-namespace ParalleExecutionNunit
+namespace ParalleExecutionNunit.AppTest
 {
-    public class Tests
+    public class CheckoutTest
     {
         [SetUp]
         public void Setup()
