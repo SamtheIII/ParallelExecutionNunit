@@ -1,50 +1,37 @@
-﻿using OpenQA.Selenium;
-using OpenQA.Selenium.Chrome;
-
-namespace ParalleExecutionNunit.Selenium_Driver
+﻿namespace ParalleExecutionNunit.Selenium_Driver
 {
-    public class SeleniumDriver
+    public static class SeleniumDriver
     {
-        IWebDriver driver;
 
-
-        //public SeleniumDriver(IWebDriver driver)
-        //{
-        //    this.driver = driver;
-        //}
-
-
-        public void InitializeDriver()
+        public static IWebDriver InitializeDriver(this IWebDriver driver)
         {
             driver = new ChromeDriver();
             driver.Manage().Window.Maximize();
             driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(5);
             driver.Url = "https://www.saucedemo.com/";
-            Login();
+            return driver;
         }
 
-        public void CloseDriver()
+        public static void CloseDriver(this IWebDriver driver)
         {
-            Logout();
             driver.Quit();
 
         }
 
-        private void Login()
+        public static void Login(this IWebDriver driver)
         {
-            InputValue(By.XPath("//input[@data-test=\"username\"]"), "standard_user", "User Name");
-            InputValue(By.XPath("//input[@data-test=\"password\"]"), "secret_sauce", "Password");
-            Click(By.XPath("//input[@data-test=\"login-button\"]"), "Log in");
+            driver.InputValue(By.XPath("//input[@data-test=\"username\"]"), "standard_user", "User Name");
+            driver.InputValue(By.XPath("//input[@data-test=\"password\"]"), "secret_sauce", "Password");
+            driver.Click(By.XPath("//input[@data-test=\"login-button\"]"), "Log in");
         }
 
-        private void Logout()
+        public static  void Logout(this IWebDriver driver)
         {
-            Click(By.XPath("//button[text() = 'Open Menu']"), "Open Menu");
-            Click(By.XPath("//a[text() = 'Logout']"), "Log out");
-
+            driver.Click(By.XPath("//button[text() = 'Open Menu']"), "Open Menu");
+            driver.Click(By.XPath("//a[text() = 'Logout']"), "Log out");
         }
 
-        public void Click(By by, string elementName)
+        public static void Click(this IWebDriver driver, By by, string elementName)
         {
             try
             {
@@ -57,7 +44,7 @@ namespace ParalleExecutionNunit.Selenium_Driver
             }
         }
 
-        public string GetValue(By by, string elementName)
+        public static string GetValue(this IWebDriver driver, By by, string elementName)
         {
             string value = String.Empty;
             try
@@ -71,7 +58,7 @@ namespace ParalleExecutionNunit.Selenium_Driver
             return value;
         }
 
-        public void InputValue(By by, string value, string elementName)
+        public static void InputValue(this IWebDriver driver, By by, string value, string elementName)
         {
             try
             {
@@ -81,6 +68,11 @@ namespace ParalleExecutionNunit.Selenium_Driver
             {
                 Assert.Fail(e.Message + $"{elementName} is not available");
             }
+        }
+
+        public static IWebElement GetElement(this IWebDriver driver, By by)
+        {
+                return driver.FindElement(by);
         }
     }
 }
