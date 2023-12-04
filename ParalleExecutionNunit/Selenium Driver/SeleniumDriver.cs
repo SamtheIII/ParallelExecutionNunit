@@ -5,7 +5,9 @@
 
         public static IWebDriver InitializeDriver(this IWebDriver driver)
         {
-            driver = new ChromeDriver();
+            ChromeOptions chromeOptions = new();
+            chromeOptions.AddArgument("--headless");
+            driver = new ChromeDriver(chromeOptions);
             driver.Manage().Window.Maximize();
             driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(5);
             driver.Url = "https://www.saucedemo.com/";
