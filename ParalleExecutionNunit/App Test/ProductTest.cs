@@ -1,7 +1,7 @@
-using ParalleExecutionNunit.Selenium_Driver;
-using ParalleExecutionNunit.Page_Objects;
+using ParallelExecutionNunit.Selenium_Driver;
+using ParallelExecutionNunit.Page_Objects;
 
-namespace ParalleExecutionNunit.AppTest
+namespace ParallelExecutionNunit.AppTest
 {
     public class ProductTest
     {

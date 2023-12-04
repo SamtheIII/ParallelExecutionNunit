@@ -1,4 +1,4 @@
-﻿namespace ParalleExecutionNunit.Selenium_Driver
+﻿namespace ParallelExecutionNunit.Selenium_Driver
 {
     public static class SeleniumDriver
     {

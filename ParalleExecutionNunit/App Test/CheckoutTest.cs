@@ -1,8 +1,7 @@
-using NuGet.Frameworks;
-using ParalleExecutionNunit.Page_Objects;
-using ParalleExecutionNunit.Selenium_Driver;
+using ParallelExecutionNunit.Page_Objects;
+using ParallelExecutionNunit.Selenium_Driver;
 
-namespace ParalleExecutionNunit.AppTest
+namespace ParallelExecutionNunit.AppTest
 {
     public class CheckoutTest
     {

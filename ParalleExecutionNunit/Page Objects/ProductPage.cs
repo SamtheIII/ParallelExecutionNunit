@@ -1,6 +1,6 @@
-﻿using ParalleExecutionNunit.Selenium_Driver;
+﻿using ParallelExecutionNunit.Selenium_Driver;
 
-namespace ParalleExecutionNunit.Page_Objects
+namespace ParallelExecutionNunit.Page_Objects
 {
     public class ProductPage 
     {

@@ -1,11 +1,6 @@
-﻿using ParalleExecutionNunit.Selenium_Driver;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using ParallelExecutionNunit.Selenium_Driver;
 
-namespace ParalleExecutionNunit.Page_Objects
+namespace ParallelExecutionNunit.Page_Objects
 {
     public  class CheckoutPage
     {
