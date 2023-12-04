@@ -28,7 +28,6 @@ namespace ParallelExecutionNunit.AppTest
         public void Check_checkout_Button_Visibility()
         {
             checkoutPage.GoToCheckoutPage(driver);
-            Thread.Sleep(2000);
             if (!checkoutPage.CheckOutButtonVisibility(driver))
             {
                 Assert.Fail("CheckOut Button is not visible");
